@@ -4,7 +4,7 @@ import ProductCard from './components/productCard'
 
 function App() {
  
-
+//screen disign 
   return (
     <div className='w-full h-screen bg-red-100 flex flex-col justify-center items-center'> 
     <div className='w-[100px] h-[100px] bg-blue-500'> </div>
