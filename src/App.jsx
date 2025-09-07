@@ -5,7 +5,7 @@ import Loginpage from './pages/login'
 import HomePage from './pages/home'
 import SignUp from './pages/signup'
 import AdminPages from './pages/adminPages'
-
+import TestPages from './pages/testPages'
 function App() {
  
  
@@ -18,6 +18,7 @@ function App() {
         <Route path="/login" element={<Loginpage/>}/>
         <Route path="/signup" element={<SignUp/>}/>
         <Route path="/admin/*" element={<AdminPages/>}/>
+        <Route path="/test" element={<TestPages/>}/>
         <Route path="/*" element={<h1>404 Not Found</h1>}/>
       </Routes>
     </div>

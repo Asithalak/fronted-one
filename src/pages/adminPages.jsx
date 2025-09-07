@@ -8,7 +8,7 @@ export default function AdminPages(){
                 <Link to="/admin/category">Categories</Link>
                 <Link to="/admin/user">Users</Link>
            </div>
-           {/* Admin Content */}
+        
            <div className="h-full w-[calc(100%-300px)] bg-yellow-500">
                 <Routes path="/*">
                     <Route path="/product" element={<h1>Product</h1>} />
