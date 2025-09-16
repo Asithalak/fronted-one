@@ -1,3 +1,4 @@
+import axios from "axios"
 import { useState } from "react"
 
 export default function Loginpage(){
@@ -5,9 +6,20 @@ export default function Loginpage(){
     const [email,setEmail]=useState("")
     const [password,setPassword]=useState("")
 
-    function handleLogin(){
+    async function handleLogin(){
         console.log(email)
         console.log(password)
+        try{
+            //
+        const response = await axios.post("http://localhost:5000/users/login",{
+            email:email,
+            password:password
+    })
+    console.log(response)
+
+     }catch(e){
+        console.log(e)
+    }
     }
     return (
         
@@ -23,6 +35,7 @@ export default function Loginpage(){
                             setEmail(e.target.value)
                         } 
                     }
+                    value={email}
                     className="w-[300px] h-[50px]  border border-[#c3efe9] rounded-[20px] mb-[20px]"></input>
                     <input 
                     onChange={
@@ -30,6 +43,7 @@ export default function Loginpage(){
                             setPassword(e.target.value)
                         }
                     }
+                    value={password}
                     type="password" className="w-[300px] h-[50px]  border border-[#c3efe9] rounded-[20px] mb-[10px]"></input>
                     <button onClick={handleLogin} className="w-[300px] cursor-pointer h-[50px] bg-[#c3efe9] rounded-[20px] mt-10">Login</button>
                 </div>
