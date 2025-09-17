@@ -1,5 +1,7 @@
 import axios from "axios"
 import { useState } from "react"
+import toast from "react-hot-toast"
+ 
 
 export default function Loginpage(){
 
@@ -9,16 +11,16 @@ export default function Loginpage(){
     async function handleLogin(){
         console.log(email)
         console.log(password)
+   
         try{
-            //
-        const response = await axios.post("http://localhost:5000/users/login",{
-            email:email,
-            password:password
+        const response = await axios.post("http://localhost:5000/users/login" , {
+           
     })
-    console.log(response)
+    toast.success("Login Successful")   
+    console.log(response.data)
 
      }catch(e){
-        console.log(e)
+        toast.error(e.response.data.message) 
     }
     }
     return (
