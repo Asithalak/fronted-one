@@ -12,8 +12,8 @@ export default function Loginpage(){
         console.log(email)
         console.log(password)
    
-        try{
-        const response = await axios.post("http://localhost:5000/users/login" , {
+        try{                                             //http://localhost:5000 
+        const response = await axios.post(import.meta.env.VITE_BACKEND_URL+"/api/users/login" , {
            
     })
     toast.success("Login Successful")   
