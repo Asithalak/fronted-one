@@ -1,12 +1,12 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './App.css'
-import Header from './components/header'
 import Loginpage from './pages/login'
 import HomePage from './pages/home'
 import SignUp from './pages/signup'
 import AdminPages from './pages/adminPages'
 import TestPages from './pages/testPages'
-import { Toaster } from 'react-hot-toast'//npm install react-hot-toast
+import { Toaster } from 'react-hot-toast'
+
 function App() {
  
  

@@ -1,7 +1,8 @@
 import axios from "axios"
 import { useState } from "react"
 import toast from "react-hot-toast"
- 
+import.meta.env.VITE_BACKEND_URL
+
 
 export default function Loginpage(){
 
@@ -11,13 +12,17 @@ export default function Loginpage(){
     async function handleLogin(){
         console.log(email)
         console.log(password)
-   
-        try{                                             //http://localhost:5000 
-        const response = await axios.post(import.meta.env.VITE_BACKEND_URL+"/api/users/login" , {
-           
-    })
-    toast.success("Login Successful")   
+
+        console.log("backend is " + import.meta.env.VITE_BACKEND_URL)
+        try{
+        const response = await axios.post(import.meta.env.VITE_BACKEND_URL + "/api/users/login" , {
+            email: email,
+            password: password
+        })
+    toast.success("Login Successful")
     console.log(response.data)
+    // Save the token to local storage
+    localStorage.setItem("token",response.data.token)
 
      }catch(e){
         toast.error(e.response.data.message) 
