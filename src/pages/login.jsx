@@ -1,6 +1,7 @@
 import axios from "axios"
 import { useState } from "react"
 import toast from "react-hot-toast"
+import { useNavigate } from "react-router-dom"
 import.meta.env.VITE_BACKEND_URL
 
 
@@ -8,6 +9,7 @@ export default function Loginpage(){
 
     const [email,setEmail]=useState("")
     const [password,setPassword]=useState("")
+    const navigate = useNavigate()
 
     async function handleLogin(){
         console.log(email)
@@ -21,8 +23,15 @@ export default function Loginpage(){
         })
     toast.success("Login Successful")
     console.log(response.data)
-    // Save the token to local storage
     localStorage.setItem("token",response.data.token)
+
+    if(response.data.role === "admin"){
+        navigate("/admin")
+    }
+    else{
+        navigate("/")
+    }
+
 
      }catch(e){
         toast.error(e.response.data.message) 

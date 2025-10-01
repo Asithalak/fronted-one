@@ -21,7 +21,6 @@ function App() {
         <Route path="/admin/*" element={<AdminPages/>}/>
         <Route path="/signup" element={<Registerpage/>}/>
         <Route path="/test" element={<TestPages/>}/>
-        <Route path="/admin/product" element={<AdminProductPage/>}/>
         <Route path="/*" element={<h1>404 Not Found</h1>}/>
       </Routes>
     </div>
