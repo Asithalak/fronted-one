@@ -1,8 +1,16 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { sampleProduct } from "../../assets/sampleData";
+import axios from "axios";
 export default function AdminProductPage(){
     const [products,setProducts]=useState(sampleProduct)
-    
+    //useEffect hook use axios function one time when the component loads
+    useEffect(()=>{
+        axios.get(import.meta.env.VITE_BACKEND_URL + "/api/product/")
+        .then((response)=>{
+            console.log(response.data)
+            setProducts(response.data)
+        });
+    },[]);
     return (
         <div className="w-full h-full bg-white max-h-full overflow-scroll">
             <table className="w-full">
@@ -20,7 +28,7 @@ export default function AdminProductPage(){
                 <tbody>
                   {
                     products.map((items,index)=>{ 
-                        return (//use key function and table row and table data
+                        return (
                             <tr key={index}>
                                 <td>{items.productId}</td>
                                 <td>{items.name}</td>
